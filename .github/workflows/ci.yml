@@ -1,0 +1,35 @@
+name: Build and tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: macos-15
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - run: swift --version && xcodebuild -version
+      - run: bash Scripts/test.sh
+      - name: Build the Xcode project
+        run: >-
+          xcodebuild -project YandexDiskDownloader.xcodeproj
+          -scheme YandexDiskDownloader -configuration Release
+          -derivedDataPath .build/Xcode -destination 'generic/platform=macOS'
+          CODE_SIGNING_ALLOWED=NO build
+      - run: bash Scripts/build-app.sh
+      - run: bash Scripts/package-release.sh
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: macOS-universal-test-build
+          path: |
+            dist/*.zip
+            dist/SHA256SUMS.txt
+            dist/BUILD_INFO.txt
+          if-no-files-found: error
+          retention-days: 14

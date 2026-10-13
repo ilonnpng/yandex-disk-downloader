@@ -1,0 +1,466 @@
+// !$*UTF8*$!
+{
+"archiveVersion" = 1;
+"classes" = {
+};
+"objectVersion" = 56;
+"objects" = {
+"270555C11C373AF5E0086023" = {
+"isa" = "PBXFileReference";
+"lastKnownFileType" = "sourcecode.swift";
+"path" = "Sources/YandexDiskCore/DiskAPI.swift";
+"sourceTree" = "SOURCE_ROOT";
+};
+"914AA3FB05FAEB27BE932654" = {
+"isa" = "PBXBuildFile";
+"fileRef" = "270555C11C373AF5E0086023";
+};
+"EEE07621B27A77171CEAD1ED" = {
+"isa" = "PBXFileReference";
+"lastKnownFileType" = "sourcecode.swift";
+"path" = "Sources/YandexDiskCore/FileTransfer.swift";
+"sourceTree" = "SOURCE_ROOT";
+};
+"92A73D2EE91B15B5808B8CB1" = {
+"isa" = "PBXBuildFile";
+"fileRef" = "EEE07621B27A77171CEAD1ED";
+};
+"67DAB152D66B877E2A9F1153" = {
+"isa" = "PBXFileReference";
+"lastKnownFileType" = "sourcecode.swift";
+"path" = "Sources/YandexDiskCore/Models.swift";
+"sourceTree" = "SOURCE_ROOT";
+};
+"829A8BD0854BF1F84B7B45D9" = {
+"isa" = "PBXBuildFile";
+"fileRef" = "67DAB152D66B877E2A9F1153";
+};
+"F32542C4FA1EB5BCCF80598E" = {
+"isa" = "PBXFileReference";
+"lastKnownFileType" = "sourcecode.swift";
+"path" = "Sources/YandexDiskCore/SafeDestination.swift";
+"sourceTree" = "SOURCE_ROOT";
+};
+"3677E3C8F808637EE0D7118D" = {
+"isa" = "PBXBuildFile";
+"fileRef" = "F32542C4FA1EB5BCCF80598E";
+};
+"45C8EDF5E88FACF4F03D522B" = {
+"isa" = "PBXGroup";
+"children" = ("270555C11C373AF5E0086023","EEE07621B27A77171CEAD1ED","67DAB152D66B877E2A9F1153","F32542C4FA1EB5BCCF80598E");
+"name" = "YandexDiskCore";
+"sourceTree" = "<group>";
+};
+"133211A95826BBD63F594A86" = {
+"isa" = "PBXSourcesBuildPhase";
+"buildActionMask" = 2147483647;
+"files" = ("914AA3FB05FAEB27BE932654","92A73D2EE91B15B5808B8CB1","829A8BD0854BF1F84B7B45D9","3677E3C8F808637EE0D7118D");
+"runOnlyForDeploymentPostprocessing" = 0;
+};
+"93BBA748222423047CD76651" = {
+"isa" = "PBXFileReference";
+"lastKnownFileType" = "sourcecode.swift";
+"path" = "Sources/YandexDiskDownloader/App.swift";
+"sourceTree" = "SOURCE_ROOT";
+};
+"D96B4B8E9978B79587535A35" = {
+"isa" = "PBXBuildFile";
+"fileRef" = "93BBA748222423047CD76651";
+};
+"7BF311E62472650C4F0168C1" = {
+"isa" = "PBXFileReference";
+"lastKnownFileType" = "sourcecode.swift";
+"path" = "Sources/YandexDiskDownloader/AppModel.swift";
+"sourceTree" = "SOURCE_ROOT";
+};
+"B740F50AD68B15B251511F18" = {
+"isa" = "PBXBuildFile";
+"fileRef" = "7BF311E62472650C4F0168C1";
+};
+"8918297DEDA4C82877BDF75D" = {
+"isa" = "PBXFileReference";
+"lastKnownFileType" = "sourcecode.swift";
+"path" = "Sources/YandexDiskDownloader/ContentView.swift";
+"sourceTree" = "SOURCE_ROOT";
+};
+"CAED26A3C20A99C23EE46487" = {
+"isa" = "PBXBuildFile";
+"fileRef" = "8918297DEDA4C82877BDF75D";
+};
+"F6857F43DC865601982383E0" = {
+"isa" = "PBXGroup";
+"children" = ("93BBA748222423047CD76651","7BF311E62472650C4F0168C1","8918297DEDA4C82877BDF75D");
+"name" = "YandexDiskDownloader";
+"sourceTree" = "<group>";
+};
+"3CF10FC6206552726DD5A59F" = {
+"isa" = "PBXSourcesBuildPhase";
+"buildActionMask" = 2147483647;
+"files" = ("D96B4B8E9978B79587535A35","B740F50AD68B15B251511F18","CAED26A3C20A99C23EE46487");
+"runOnlyForDeploymentPostprocessing" = 0;
+};
+"853201E36118540D40CAF17D" = {
+"isa" = "PBXFileReference";
+"lastKnownFileType" = "sourcecode.swift";
+"path" = "Tests/YandexDiskCoreTests/CoreTests.swift";
+"sourceTree" = "SOURCE_ROOT";
+};
+"05C8092C51DF1C71822B9EF3" = {
+"isa" = "PBXBuildFile";
+"fileRef" = "853201E36118540D40CAF17D";
+};
+"536329F47F8EAF961EDFDB02" = {
+"isa" = "PBXGroup";
+"children" = ("853201E36118540D40CAF17D");
+"name" = "Tests";
+"sourceTree" = "<group>";
+};
+"2251F79CE8CE79DDA18CF73E" = {
+"isa" = "PBXSourcesBuildPhase";
+"buildActionMask" = 2147483647;
+"files" = ("05C8092C51DF1C71822B9EF3");
+"runOnlyForDeploymentPostprocessing" = 0;
+};
+"E23EF4DFD8458EBA92BF9064" = {
+"isa" = "PBXFileReference";
+"explicitFileType" = "archive.ar";
+"path" = "libYandexDiskCore.a";
+"sourceTree" = "BUILT_PRODUCTS_DIR";
+};
+"E6FC57C251E9E1BEC1D3C0D2" = {
+"isa" = "PBXFileReference";
+"explicitFileType" = "wrapper.application";
+"path" = "Yandex Disk Downloader.app";
+"sourceTree" = "BUILT_PRODUCTS_DIR";
+};
+"B7480EC88B7F22D0A4757273" = {
+"isa" = "PBXFileReference";
+"explicitFileType" = "wrapper.cfbundle";
+"path" = "YandexDiskCoreTests.xctest";
+"sourceTree" = "BUILT_PRODUCTS_DIR";
+};
+"FBDC4F23F93125BBEEAE800C" = {
+"isa" = "PBXGroup";
+"children" = ("E23EF4DFD8458EBA92BF9064","E6FC57C251E9E1BEC1D3C0D2","B7480EC88B7F22D0A4757273");
+"name" = "Products";
+"sourceTree" = "<group>";
+};
+"F8995BA5891B07E328C60D6B" = {
+"isa" = "PBXFileReference";
+"lastKnownFileType" = "image.icns";
+"path" = "Resources/AppIcon.icns";
+"sourceTree" = "SOURCE_ROOT";
+};
+"0112DAE3F84CB4DF5179BE01" = {
+"isa" = "PBXFileReference";
+"lastKnownFileType" = "text.plist.xml";
+"path" = "Resources/Info.plist";
+"sourceTree" = "SOURCE_ROOT";
+};
+"0189424A5A60FED329FA868E" = {
+"isa" = "PBXGroup";
+"children" = ("F8995BA5891B07E328C60D6B","0112DAE3F84CB4DF5179BE01");
+"name" = "Resources";
+"sourceTree" = "<group>";
+};
+"74C2431FE30C4A47C8443B80" = {
+"isa" = "PBXBuildFile";
+"fileRef" = "F8995BA5891B07E328C60D6B";
+};
+"963488E8A773A44C9A5DC523" = {
+"isa" = "PBXResourcesBuildPhase";
+"buildActionMask" = 2147483647;
+"files" = ("74C2431FE30C4A47C8443B80");
+"runOnlyForDeploymentPostprocessing" = 0;
+};
+"B28B7AF69320201D1CF206EB" = {
+"isa" = "PBXGroup";
+"children" = ("45C8EDF5E88FACF4F03D522B","F6857F43DC865601982383E0","536329F47F8EAF961EDFDB02","0189424A5A60FED329FA868E","FBDC4F23F93125BBEEAE800C");
+"sourceTree" = "<group>";
+};
+"5A485B880CD57FB1A6A04211" = {
+"isa" = "XCBuildConfiguration";
+"buildSettings" = {
+"MACOSX_DEPLOYMENT_TARGET" = "13.0";
+"SWIFT_VERSION" = "5.0";
+"SDKROOT" = "macosx";
+"CLANG_ENABLE_MODULES" = "YES";
+"CODE_SIGN_IDENTITY" = "-";
+"CODE_SIGN_STYLE" = "Manual";
+"ARCHS" = "$(ARCHS_STANDARD)";
+"ONLY_ACTIVE_ARCH" = "NO";
+"PRODUCT_NAME" = "YandexDiskCore";
+"PRODUCT_MODULE_NAME" = "YandexDiskCore";
+"DEFINES_MODULE" = "YES";
+"SKIP_INSTALL" = "YES";
+"MACH_O_TYPE" = "staticlib";
+"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+"DEBUG_INFORMATION_FORMAT" = "dwarf";
+"ENABLE_TESTABILITY" = "YES";
+"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+};
+"name" = "Debug";
+};
+"1BD3EC2284E1D1EAACF8A62F" = {
+"isa" = "XCBuildConfiguration";
+"buildSettings" = {
+"MACOSX_DEPLOYMENT_TARGET" = "13.0";
+"SWIFT_VERSION" = "5.0";
+"SDKROOT" = "macosx";
+"CLANG_ENABLE_MODULES" = "YES";
+"CODE_SIGN_IDENTITY" = "-";
+"CODE_SIGN_STYLE" = "Manual";
+"ARCHS" = "$(ARCHS_STANDARD)";
+"ONLY_ACTIVE_ARCH" = "NO";
+"PRODUCT_NAME" = "YandexDiskCore";
+"PRODUCT_MODULE_NAME" = "YandexDiskCore";
+"DEFINES_MODULE" = "YES";
+"SKIP_INSTALL" = "YES";
+"MACH_O_TYPE" = "staticlib";
+"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+};
+"name" = "Release";
+};
+"538A372BBCF20191B2B78C2D" = {
+"isa" = "XCConfigurationList";
+"buildConfigurations" = ("5A485B880CD57FB1A6A04211","1BD3EC2284E1D1EAACF8A62F");
+"defaultConfigurationIsVisible" = 0;
+"defaultConfigurationName" = "Release";
+};
+"AD49525DA12890742EA8E805" = {
+"isa" = "PBXNativeTarget";
+"buildConfigurationList" = "538A372BBCF20191B2B78C2D";
+"buildPhases" = ("133211A95826BBD63F594A86");
+"buildRules" = ();
+"dependencies" = ();
+"name" = "YandexDiskCore";
+"productName" = "YandexDiskCore";
+"productReference" = "E23EF4DFD8458EBA92BF9064";
+"productType" = "com.apple.product-type.library.static";
+};
+"E9B2E96ABC5F6856F2BE79CF" = {
+"isa" = "XCBuildConfiguration";
+"buildSettings" = {
+"MACOSX_DEPLOYMENT_TARGET" = "13.0";
+"SWIFT_VERSION" = "5.0";
+"SDKROOT" = "macosx";
+"CLANG_ENABLE_MODULES" = "YES";
+"CODE_SIGN_IDENTITY" = "-";
+"CODE_SIGN_STYLE" = "Manual";
+"ARCHS" = "$(ARCHS_STANDARD)";
+"ONLY_ACTIVE_ARCH" = "NO";
+"PRODUCT_NAME" = "Yandex Disk Downloader";
+"EXECUTABLE_NAME" = "YandexDiskDownloader";
+"PRODUCT_BUNDLE_IDENTIFIER" = "io.github.ilnaz.YandexDiskDownloader";
+"INFOPLIST_FILE" = "Resources/Info.plist";
+"ENABLE_APP_SANDBOX" = "NO";
+"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)","@executable_path/../Frameworks");
+"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+"DEBUG_INFORMATION_FORMAT" = "dwarf";
+"ENABLE_TESTABILITY" = "YES";
+"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+};
+"name" = "Debug";
+};
+"5A8C91857F674E16E2724F47" = {
+"isa" = "XCBuildConfiguration";
+"buildSettings" = {
+"MACOSX_DEPLOYMENT_TARGET" = "13.0";
+"SWIFT_VERSION" = "5.0";
+"SDKROOT" = "macosx";
+"CLANG_ENABLE_MODULES" = "YES";
+"CODE_SIGN_IDENTITY" = "-";
+"CODE_SIGN_STYLE" = "Manual";
+"ARCHS" = "$(ARCHS_STANDARD)";
+"ONLY_ACTIVE_ARCH" = "NO";
+"PRODUCT_NAME" = "Yandex Disk Downloader";
+"EXECUTABLE_NAME" = "YandexDiskDownloader";
+"PRODUCT_BUNDLE_IDENTIFIER" = "io.github.ilnaz.YandexDiskDownloader";
+"INFOPLIST_FILE" = "Resources/Info.plist";
+"ENABLE_APP_SANDBOX" = "NO";
+"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)","@executable_path/../Frameworks");
+"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+};
+"name" = "Release";
+};
+"F37922C48DA5978D02C9E50E" = {
+"isa" = "XCConfigurationList";
+"buildConfigurations" = ("E9B2E96ABC5F6856F2BE79CF","5A8C91857F674E16E2724F47");
+"defaultConfigurationIsVisible" = 0;
+"defaultConfigurationName" = "Release";
+};
+"1C45C98CEEBD77C0B5D545D3" = {
+"isa" = "PBXBuildFile";
+"fileRef" = "E23EF4DFD8458EBA92BF9064";
+};
+"12384B5908BE5FE5B3301CEE" = {
+"isa" = "PBXFrameworksBuildPhase";
+"buildActionMask" = 2147483647;
+"files" = ("1C45C98CEEBD77C0B5D545D3");
+"runOnlyForDeploymentPostprocessing" = 0;
+};
+"6B6E7057EFF35306C7C335F1" = {
+"isa" = "PBXContainerItemProxy";
+"containerPortal" = "98F54143AB4E86B28C3AFEE0";
+"proxyType" = 1;
+"remoteGlobalIDString" = "AD49525DA12890742EA8E805";
+"remoteInfo" = "YandexDiskCore";
+};
+"A6E929EF0C00F895A2EAAD2D" = {
+"isa" = "PBXTargetDependency";
+"target" = "AD49525DA12890742EA8E805";
+"targetProxy" = "6B6E7057EFF35306C7C335F1";
+};
+"4F6027D858B72CC70E5CC8E9" = {
+"isa" = "PBXNativeTarget";
+"buildConfigurationList" = "F37922C48DA5978D02C9E50E";
+"buildPhases" = ("3CF10FC6206552726DD5A59F","12384B5908BE5FE5B3301CEE","963488E8A773A44C9A5DC523");
+"buildRules" = ();
+"dependencies" = ("A6E929EF0C00F895A2EAAD2D");
+"name" = "YandexDiskDownloader";
+"productName" = "Yandex Disk Downloader";
+"productReference" = "E6FC57C251E9E1BEC1D3C0D2";
+"productType" = "com.apple.product-type.application";
+};
+"FCB48D8F88BCDB0ED9FADFD7" = {
+"isa" = "XCBuildConfiguration";
+"buildSettings" = {
+"MACOSX_DEPLOYMENT_TARGET" = "13.0";
+"SWIFT_VERSION" = "5.0";
+"SDKROOT" = "macosx";
+"CLANG_ENABLE_MODULES" = "YES";
+"CODE_SIGN_IDENTITY" = "-";
+"CODE_SIGN_STYLE" = "Manual";
+"ARCHS" = "$(ARCHS_STANDARD)";
+"ONLY_ACTIVE_ARCH" = "NO";
+"PRODUCT_NAME" = "YandexDiskCoreTests";
+"PRODUCT_BUNDLE_IDENTIFIER" = "io.github.ilnaz.YandexDiskCoreTests";
+"GENERATE_INFOPLIST_FILE" = "YES";
+"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)","@loader_path/../Frameworks");
+"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+"DEBUG_INFORMATION_FORMAT" = "dwarf";
+"ENABLE_TESTABILITY" = "YES";
+"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+};
+"name" = "Debug";
+};
+"942EEBBACD6C88CAE7F29B29" = {
+"isa" = "XCBuildConfiguration";
+"buildSettings" = {
+"MACOSX_DEPLOYMENT_TARGET" = "13.0";
+"SWIFT_VERSION" = "5.0";
+"SDKROOT" = "macosx";
+"CLANG_ENABLE_MODULES" = "YES";
+"CODE_SIGN_IDENTITY" = "-";
+"CODE_SIGN_STYLE" = "Manual";
+"ARCHS" = "$(ARCHS_STANDARD)";
+"ONLY_ACTIVE_ARCH" = "NO";
+"PRODUCT_NAME" = "YandexDiskCoreTests";
+"PRODUCT_BUNDLE_IDENTIFIER" = "io.github.ilnaz.YandexDiskCoreTests";
+"GENERATE_INFOPLIST_FILE" = "YES";
+"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)","@loader_path/../Frameworks");
+"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+};
+"name" = "Release";
+};
+"BECB265224D91761C05FDA33" = {
+"isa" = "XCConfigurationList";
+"buildConfigurations" = ("FCB48D8F88BCDB0ED9FADFD7","942EEBBACD6C88CAE7F29B29");
+"defaultConfigurationIsVisible" = 0;
+"defaultConfigurationName" = "Release";
+};
+"7DDBAE224A26C6973DCD5E65" = {
+"isa" = "PBXBuildFile";
+"fileRef" = "E23EF4DFD8458EBA92BF9064";
+};
+"99C7943D90D870A50ADE9160" = {
+"isa" = "PBXFrameworksBuildPhase";
+"buildActionMask" = 2147483647;
+"files" = ("7DDBAE224A26C6973DCD5E65");
+"runOnlyForDeploymentPostprocessing" = 0;
+};
+"3B07A601889A5C98A1E12C74" = {
+"isa" = "PBXContainerItemProxy";
+"containerPortal" = "98F54143AB4E86B28C3AFEE0";
+"proxyType" = 1;
+"remoteGlobalIDString" = "AD49525DA12890742EA8E805";
+"remoteInfo" = "YandexDiskCore";
+};
+"A5CC8802088F5DB9829D610B" = {
+"isa" = "PBXTargetDependency";
+"target" = "AD49525DA12890742EA8E805";
+"targetProxy" = "3B07A601889A5C98A1E12C74";
+};
+"0A06C5E2DA34E686D888A695" = {
+"isa" = "PBXNativeTarget";
+"buildConfigurationList" = "BECB265224D91761C05FDA33";
+"buildPhases" = ("2251F79CE8CE79DDA18CF73E","99C7943D90D870A50ADE9160");
+"buildRules" = ();
+"dependencies" = ("A5CC8802088F5DB9829D610B");
+"name" = "YandexDiskCoreTests";
+"productName" = "YandexDiskCoreTests";
+"productReference" = "B7480EC88B7F22D0A4757273";
+"productType" = "com.apple.product-type.bundle.unit-test";
+};
+"89E1FD6268CC0F221A2BE178" = {
+"isa" = "XCBuildConfiguration";
+"buildSettings" = {
+"MACOSX_DEPLOYMENT_TARGET" = "13.0";
+"SWIFT_VERSION" = "5.0";
+"SDKROOT" = "macosx";
+"CLANG_ENABLE_MODULES" = "YES";
+"CODE_SIGN_IDENTITY" = "-";
+"CODE_SIGN_STYLE" = "Manual";
+"ARCHS" = "$(ARCHS_STANDARD)";
+"ONLY_ACTIVE_ARCH" = "NO";
+"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+"DEBUG_INFORMATION_FORMAT" = "dwarf";
+"ENABLE_TESTABILITY" = "YES";
+"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+};
+"name" = "Debug";
+};
+"E6DE6C99132752C914FEF632" = {
+"isa" = "XCBuildConfiguration";
+"buildSettings" = {
+"MACOSX_DEPLOYMENT_TARGET" = "13.0";
+"SWIFT_VERSION" = "5.0";
+"SDKROOT" = "macosx";
+"CLANG_ENABLE_MODULES" = "YES";
+"CODE_SIGN_IDENTITY" = "-";
+"CODE_SIGN_STYLE" = "Manual";
+"ARCHS" = "$(ARCHS_STANDARD)";
+"ONLY_ACTIVE_ARCH" = "NO";
+"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+};
+"name" = "Release";
+};
+"862894B703A6DEDF96A9DD6C" = {
+"isa" = "XCConfigurationList";
+"buildConfigurations" = ("89E1FD6268CC0F221A2BE178","E6DE6C99132752C914FEF632");
+"defaultConfigurationIsVisible" = 0;
+"defaultConfigurationName" = "Release";
+};
+"98F54143AB4E86B28C3AFEE0" = {
+"isa" = "PBXProject";
+"attributes" = {
+"LastUpgradeCheck" = "1600";
+};
+"buildConfigurationList" = "862894B703A6DEDF96A9DD6C";
+"compatibilityVersion" = "Xcode 14.0";
+"developmentRegion" = "en";
+"hasScannedForEncodings" = 0;
+"knownRegions" = ("en","ru","Base");
+"mainGroup" = "B28B7AF69320201D1CF206EB";
+"productRefGroup" = "FBDC4F23F93125BBEEAE800C";
+"projectDirPath" = "";
+"projectRoot" = "";
+"targets" = ("AD49525DA12890742EA8E805","4F6027D858B72CC70E5CC8E9","0A06C5E2DA34E686D888A695");
+};
+};
+"rootObject" = "98F54143AB4E86B28C3AFEE0";
+}
