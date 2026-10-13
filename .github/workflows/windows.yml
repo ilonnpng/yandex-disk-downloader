@@ -6,6 +6,7 @@ on:
       - Windows/**
       - Scripts/build-windows.ps1
       - .github/workflows/windows.yml
+      - .github/windows-release.json
   release:
     types: [published]
   workflow_dispatch:
@@ -36,16 +37,35 @@ jobs:
             dist/*Windows.txt
             dist/screenshot-windows.png
           if-no-files-found: error
+      - name: Check the explicit Windows release request
+        id: release-intent
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if (!(Test-Path .github/windows-release.json)) { exit 0 }
+          $request = Get-Content .github/windows-release.json | ConvertFrom-Json
+          if ($request.version -ne '1.0.1' -or $request.tag -ne 'v1.0.1-windows') { throw 'Unsupported release request' }
+          gh release view $request.tag --repo "$env:GITHUB_REPOSITORY" --json tagName 2>$null
+          if ($LASTEXITCODE -eq 0) { exit 0 }
+          "publish=true" >> $env:GITHUB_OUTPUT
+          "tag=$($request.tag)" >> $env:GITHUB_OUTPUT
+          exit 0
       - uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4
-        if: github.event_name == 'release'
+        if: github.event_name == 'release' || steps.release-intent.outputs.publish == 'true'
         with:
           subject-path: dist/*Windows*.zip
       - name: Attach Windows builds
-        if: github.event_name == 'release'
+        if: github.event_name == 'release' || steps.release-intent.outputs.publish == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || steps.release-intent.outputs.tag }}
+          CREATE_RELEASE: ${{ steps.release-intent.outputs.publish }}
         run: |
           $archives = @(Get-ChildItem dist/*Windows*.zip | ForEach-Object { $_.FullName })
-          gh release upload "$env:RELEASE_TAG" @archives dist/SHA256SUMS-Windows.txt dist/BUILD_INFO-Windows.txt --repo "$env:GITHUB_REPOSITORY"
+          if ($env:CREATE_RELEASE -eq 'true') {
+            gh release create "$env:RELEASE_TAG" @archives dist/SHA256SUMS-Windows.txt dist/BUILD_INFO-Windows.txt --repo "$env:GITHUB_REPOSITORY" --target "$env:GITHUB_SHA" --title 'Yandex Disk Downloader — Windows 1.0.1' --notes-file .github/release-notes-windows.md
+          } else {
+            gh release upload "$env:RELEASE_TAG" @archives dist/SHA256SUMS-Windows.txt dist/BUILD_INFO-Windows.txt --repo "$env:GITHUB_REPOSITORY"
+          }
           if ($LASTEXITCODE -ne 0) { throw 'Release upload failed' }

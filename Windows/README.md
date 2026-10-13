@@ -9,7 +9,7 @@ Native C# / WPF application. Public folder traversal, individual downloads, boun
 3. Полностью распакуйте ZIP в отдельную папку и запустите **YandexDiskDownloader.exe** внутри неё. Не переносите EXE отдельно от остальных файлов.
 4. Вставьте публичную ссылку, нажмите «Проверить», выберите папку и нажмите «Скачать».
 
-Windows 10 22H2 / Windows 11, 64-bit. The self-contained archive includes the Microsoft .NET 10 runtime; there are no third-party application packages. Administrator rights, Python and a separate .NET installation are not required.
+Windows 11, 64-bit. The self-contained archive includes the Microsoft .NET 10 runtime; there are no third-party application packages. Administrator rights, Python and a separate .NET installation are not required. Windows 10 execution is unverified; Microsoft's current .NET support on Windows 10 is limited to specific Enterprise/LTSC editions. See [Microsoft's supported Windows versions](https://learn.microsoft.com/dotnet/core/install/windows).
 
 The EXE is not Authenticode-signed. Windows SmartScreen may warn about an unrecognized publisher. Keep Windows security protection enabled and review the source and build information before opening the app. No independent antivirus certification or security audit is claimed.
 

@@ -9,7 +9,7 @@ Native Windows app for downloading public Yandex Disk files and folders. Russian
 
 Полностью распакуйте архив и запустите **YandexDiskDownloader.exe**. Оставьте остальные файлы рядом с EXE. Среда .NET включена; отдельно устанавливать её не нужно.
 
-Windows 10 22H2 / Windows 11, 64-bit. The EXE has no Authenticode certificate. Keep Windows security enabled; source, checksums and provenance are available for review.
+Windows 11, 64-bit. Windows 10 and real ARM64 hardware remain unverified. The EXE has no Authenticode certificate. Keep Windows security enabled; source, checksums and provenance are available for review.
 
 GitHub Actions builds the tagged source, runs the core tests and x64 window smoke check, then attaches both ZIPs, **SHA256SUMS-Windows.txt** and **BUILD_INFO-Windows.txt**. ARM64 execution has not been tested on hardware. Partial downloads are not restored after quitting.
 

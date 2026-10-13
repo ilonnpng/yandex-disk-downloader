@@ -8,6 +8,20 @@ namespace YandexDiskDownloader.Windows;
 
 public partial class App : Application
 {
+    public App()
+    {
+        AppDomain.CurrentDomain.UnhandledException += (_, error) => SmokeError(error.ExceptionObject.ToString() ?? "Startup failure");
+        DispatcherUnhandledException += (_, error) =>
+        {
+            if (Environment.GetCommandLineArgs().Skip(1).FirstOrDefault() != "--smoke") return;
+            SmokeError(error.Exception.ToString()); error.Handled = true; Shutdown(1);
+        };
+    }
+    private static void SmokeError(string error)
+    {
+        var args = Environment.GetCommandLineArgs();
+        if (args.Length == 3 && args[1] == "--smoke") File.WriteAllText(args[2] + ".error.txt", error);
+    }
     protected override void OnStartup(StartupEventArgs e)
     {
         base.OnStartup(e);
