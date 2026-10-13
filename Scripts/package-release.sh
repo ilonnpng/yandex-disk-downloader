@@ -7,7 +7,7 @@ if [ -n "${RELEASE_TAG:-}" ]; then
     test "$RELEASE_TAG" = "v$version"
 fi
 codesign --verify --strict "$app"
-lipo -verify_arch arm64 x86_64 "$app/Contents/MacOS/YandexDiskDownloader"
+lipo "$app/Contents/MacOS/YandexDiskDownloader" -verify_arch arm64 x86_64
 archive="YandexDiskDownloader-$version-macOS-universal.zip"
 ditto -c -k --sequesterRsrc --keepParent "$app" "dist/$archive"
 (cd dist && shasum -a256 "$archive" > SHA256SUMS.txt)
