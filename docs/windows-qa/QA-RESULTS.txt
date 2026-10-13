@@ -7,3 +7,7 @@ Core scenarios: 18/18 PASS against the published Core.dll
 Queue / pause / range resume / retry / existing files / cancel / collisions: PASS
 UI screenshots are rendered from the running WPF application on Windows.
 Downloads in functional scenarios use a controlled HTTP fixture, not live Yandex CDN endpoints.
+LIVE sample unavailable: HTTP 404: ошибка сервера или ограничение доступа.
+LIVE API metadata: PASS
+LIVE sample unavailable: Ошибка сети. Файл пропущен; его можно повторить позже.
+LIVE complete download: NOT VERIFIED (sample availability / network)
