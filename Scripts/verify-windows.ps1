@@ -3,7 +3,9 @@ Set-Location (Join-Path $PSScriptRoot '..')
 $work = "$PWD/.build/WindowsQA"
 New-Item -ItemType Directory -Force "$work/screenshots" | Out-Null
 $repo = 'ilonnpng/yandex-disk-downloader'
-$release = Invoke-RestMethod "https://api.github.com/repos/$repo/releases/tags/v1.0.1-windows"
+$releaseJson = gh api "repos/$repo/releases/tags/v1.0.1-windows"
+if ($LASTEXITCODE -ne 0) { throw 'Release metadata request failed' }
+$release = $releaseJson | ConvertFrom-Json
 $asset = $release.assets | Where-Object name -eq 'YandexDiskDownloader-1.0.1-Windows-win-x64.zip'
 if (!$asset) { throw 'Published x64 ZIP not found' }
 $zip = "$work/$($asset.name)"
