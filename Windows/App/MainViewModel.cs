@@ -49,7 +49,8 @@ public sealed record Settings(string Link, string Destination, int Parallelism, 
 public sealed class MainViewModel : Observable, IDisposable
 {
     private readonly Dispatcher dispatcher;
-    private readonly HttpClient http = DiskApi.CreateClient();
+    private readonly HttpClient http;
+    private readonly bool persist;
     private readonly DiskApi api;
     private readonly DispatcherTimer timer;
     private readonly Stopwatch clock = new();
@@ -100,12 +101,12 @@ public sealed class MainViewModel : Observable, IDisposable
                 (manifest.KnownSize ? " / " + Bytes(manifest.TotalSize) : "") + (speed > 0 ? " · " + Bytes((long)speed) + "/с" + eta : "");
         }
     }
-    public MainViewModel(Dispatcher dispatcher)
+    public MainViewModel(Dispatcher dispatcher, HttpClient? client = null, bool persist = true)
     {
-        this.dispatcher = dispatcher; api = new(http);
+        this.dispatcher = dispatcher; this.persist = persist; http = client ?? DiskApi.CreateClient(); api = new(http);
         try
         {
-            if (File.Exists(settingsPath) && new FileInfo(settingsPath).Length < 2_000_000)
+            if (persist && File.Exists(settingsPath) && new FileInfo(settingsPath).Length < 2_000_000)
             {
                 var settings = JsonSerializer.Deserialize<Settings>(File.ReadAllText(settingsPath));
                 if (settings != null)
@@ -230,6 +231,7 @@ public sealed class MainViewModel : Observable, IDisposable
     }
     private void Save()
     {
+        if (!persist) return;
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(settingsPath)!);

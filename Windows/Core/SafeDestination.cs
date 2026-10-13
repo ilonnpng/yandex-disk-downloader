@@ -30,7 +30,7 @@ public sealed class SafeDestination
         // Windows denies replacement/deletion while this non-shared handle is open.
         try
         {
-            await using var input = new FileStream(target, FileMode.Open, FileAccess.Read, FileShare.None, 131072, FileOptions.Asynchronous);
+            await using var input = OpenReadNoFollow(target);
             if (file.Size == null && file.Md5 == null && file.Sha256 == null) return false;
             await FileTransfer.Verify(input, file, hashes, token);
             return true;
@@ -79,6 +79,17 @@ public sealed class SafeDestination
             return lease;
         }
         catch { lease.Dispose(); throw; }
+    }
+    private static FileStream OpenReadNoFollow(string path)
+    {
+        if (!OperatingSystem.IsWindows())
+            return new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.None, 131072, FileOptions.Asynchronous);
+        var handle = CreateFileW(path, 0x80000000, 0, IntPtr.Zero, 3, 0x40200000, IntPtr.Zero);
+        if (handle.IsInvalid) { handle.Dispose(); throw new IOException("Не удалось открыть существующий файл."); }
+        if (!GetFileInformationByHandleEx(handle, 9, out var info, (uint)Marshal.SizeOf<AttributeTag>()) || (info.Attributes & 0x410) != 0)
+        { handle.Dispose(); throw new InvalidDataException("Ссылка или папка не может считаться загруженным файлом."); }
+        try { return new FileStream(handle, FileAccess.Read, 131072, true); }
+        catch { handle.Dispose(); throw; }
     }
     private sealed class DirectoryLease : IDisposable
     {

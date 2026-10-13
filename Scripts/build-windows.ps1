@@ -14,6 +14,8 @@ foreach ($rid in @('win-x64', 'win-arm64')) {
     Compress-Archive -Path $output -DestinationPath $archive -CompressionLevel Optimal -Force
 }
 $smoke = Start-Process -FilePath "$PWD/dist/Windows-win-x64/YandexDiskDownloader.exe" -ArgumentList '--smoke', "`"$PWD/dist/screenshot-windows.png`"" -PassThru -Wait
+Write-Host "WPF smoke exit: $($smoke.ExitCode); screenshot exists: $(Test-Path dist/screenshot-windows.png)"
+if (Test-Path dist/screenshot-windows.png.error.txt) { Get-Content dist/screenshot-windows.png.error.txt | Write-Host }
 if ($smoke.ExitCode -ne 0 -or !(Test-Path dist/screenshot-windows.png)) { throw 'WPF window smoke check failed' }
 $checksums = Get-ChildItem dist/YandexDiskDownloader-*-Windows-*.zip | ForEach-Object { (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant() + '  ' + $_.Name }
 [IO.File]::WriteAllLines("$PWD/dist/SHA256SUMS-Windows.txt", [string[]]$checksums, [Text.UTF8Encoding]::new($false))

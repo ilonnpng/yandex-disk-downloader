@@ -17,10 +17,11 @@ public partial class App : Application
         if (e.Args.Length == 2 && e.Args[0] == "--smoke")
         {
             // CI-only layout smoke check, no network or downloads.
-            Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() =>
+            Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(async () =>
             {
                 try
                 {
+                    await SmokeScenario.Run(window, Dispatcher);
                     window.UpdateLayout();
                     if (window.ActualWidth < 900 || window.ActualHeight < 600 || window.DataContext is not MainViewModel)
                         throw new InvalidOperationException("Window did not load correctly.");
@@ -30,7 +31,11 @@ public partial class App : Application
                     using var output = File.Create(e.Args[1]); encoder.Save(output);
                     Shutdown(0);
                 }
-                catch { Shutdown(1); }
+                catch (Exception error)
+                {
+                    File.WriteAllText(e.Args[1] + ".error.txt", error.ToString());
+                    Shutdown(1);
+                }
             }));
         }
     }

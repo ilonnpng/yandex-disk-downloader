@@ -12,6 +12,7 @@
     <Product>Yandex Disk Downloader</Product>
     <Authors>Ilnaz Davletkereev</Authors>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>AppIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup><ProjectReference Include="../Core/Core.csproj" /></ItemGroup>
 </Project>
