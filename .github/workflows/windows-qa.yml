@@ -1,0 +1,36 @@
+name: Verify published Windows app
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/windows-qa.yml
+      - Scripts/verify-windows.ps1
+      - Windows/QaRunner/**
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: windows-2025
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6
+        with:
+          dotnet-version: 10.0.x
+      - name: Download, verify and launch the published EXE
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pwsh -File Scripts/verify-windows.ps1
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        if: always()
+        with:
+          name: Windows-QA-screenshots-and-results
+          path: |
+            .build/WindowsQA/screenshots/*
+            .build/WindowsQA/*.txt
+          if-no-files-found: warn
