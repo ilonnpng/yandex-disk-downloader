@@ -12,6 +12,8 @@ This project publishes its source, build scripts, test results and release check
 
 Review `Sources/YandexDiskCore/` for network and filesystem code and `Sources/YandexDiskDownloader/` for the interface and local settings.
 
+The Windows implementation is in `Windows/Core` and `Windows/App`. It uses Microsoft .NET 10 / WPF and ships an unsigned EXE with its runtime in a ZIP. See [Windows security, build and verification notes](Windows/README.md) for Windows-specific paths, checksums, provenance commands and limitations. It does not install a service or request administrator privileges.
+
 ## Verify a release
 
 Download the application ZIP, `SHA256SUMS.txt` and `BUILD_INFO.txt` from the same GitHub release. In that directory:

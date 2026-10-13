@@ -9,3 +9,6 @@ xcuserdata/
 *.zip
 *.dmg
 integration-downloads/
+**/bin/
+**/obj/
+.vs/

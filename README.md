@@ -2,7 +2,9 @@
 
 [![Build and tests](https://github.com/ilonnpng/yandex-disk-downloader/actions/workflows/ci.yml/badge.svg)](https://github.com/ilonnpng/yandex-disk-downloader/actions/workflows/ci.yml)
 
-**[Download for macOS](https://github.com/ilonnpng/yandex-disk-downloader/releases/latest)** · [Security and build verification](SECURITY.md)
+**[Download for macOS](https://github.com/ilonnpng/yandex-disk-downloader/releases/tag/v1.0.1)** · [Security and build verification](SECURITY.md)
+
+**Windows:** [Download Windows version](https://github.com/ilonnpng/yandex-disk-downloader/releases/tag/v1.0.1-windows) · [Windows source and build instructions](Windows/README.md)
 
 A native macOS app for downloading public Yandex Disk folders and files. Paste a link, choose a folder and download. No Yandex account, API key, Python runtime or terminal is required to use the app.
 
@@ -33,7 +35,7 @@ It is not affiliated with or endorsed by Yandex.
 
 ## Install
 
-1. Download the application ZIP from [GitHub Releases](https://github.com/ilonnpng/yandex-disk-downloader/releases/latest) and unzip it. The separate Source code archives are for building the app yourself.
+1. Download the macOS application ZIP from [GitHub Releases](https://github.com/ilonnpng/yandex-disk-downloader/releases/tag/v1.0.1) and unzip it. The separate Source code archives are for building the app yourself.
 2. Drag **Yandex Disk Downloader.app** to Applications (or open it from the extracted folder).
 3. Paste a public Yandex Disk link, wait for inspection, choose the destination and click **Download**.
 
@@ -41,7 +43,7 @@ The supplied local build is ad-hoc signed, not Apple-notarized. macOS may ask yo
 
 No paid Apple Developer account is needed for local builds.
 
-**По-русски:** скачайте ZIP приложения в разделе [Releases](https://github.com/ilonnpng/yandex-disk-downloader/releases/latest), распакуйте и перенесите приложение в «Программы». Вставьте публичную ссылку Яндекс Диска, выберите папку и нажмите «Скачать». Если файл завершился с ошибкой, приложение пропустит его и продолжит очередь; затем можно повторить неудачные загрузки.
+**По-русски:** скачайте ZIP приложения в разделе [Releases](https://github.com/ilonnpng/yandex-disk-downloader/releases/tag/v1.0.1), распакуйте и перенесите приложение в «Программы». Вставьте публичную ссылку Яндекс Диска, выберите папку и нажмите «Скачать». Если файл завершился с ошибкой, приложение пропустит его и продолжит очередь; затем можно повторить неудачные загрузки.
 
 Release archives are built from the published version tag by GitHub Actions. Each release includes SHA-256 checksums, build information and a provenance attestation. See [SECURITY.md](SECURITY.md) for verification instructions and the limits of these checks.
 
