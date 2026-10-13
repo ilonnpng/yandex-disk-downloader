@@ -1,0 +1,9 @@
+Published Windows app QA
+OS: Microsoft Windows NT 10.0.26100.0
+Release: https://github.com/ilonnpng/yandex-disk-downloader/releases/tag/v1.0.1-windows
+Archive SHA-256: 718e8cd2c12ea4681d30ef8d5aa2e87e1e7fd9e1a63572995d63d370a19fb13a
+EXE startup: PASS
+Core scenarios: 18/18 PASS against the published Core.dll
+Queue / pause / range resume / retry / existing files / cancel / collisions: PASS
+UI screenshots are rendered from the running WPF application on Windows.
+Downloads in functional scenarios use a controlled HTTP fixture, not live Yandex CDN endpoints.
