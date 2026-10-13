@@ -23,6 +23,9 @@ internal static class Program
             try
             {
                 await Verify((MainWindow)app.MainWindow, output);
+                var live = await LiveProbe.Run();
+                File.WriteAllText(Path.Combine(output, "live-results.txt"), live);
+                Console.WriteLine(live);
                 Console.WriteLine("PASS all published-Windows interface scenarios"); app.Shutdown(0);
             }
             catch (Exception error)
@@ -84,7 +87,8 @@ internal static class Program
     private static async Task Snapshot(MainWindow window, string output, string name)
     {
         await window.Dispatcher.InvokeAsync(window.UpdateLayout, DispatcherPriority.Render);
-        var image = new RenderTargetBitmap((int)window.ActualWidth, (int)window.ActualHeight, 96, 96, PixelFormats.Pbgra32);
+        var bounds = VisualTreeHelper.GetDescendantBounds(window);
+        var image = new RenderTargetBitmap((int)Math.Ceiling(bounds.Right), (int)Math.Ceiling(bounds.Bottom), 96, 96, PixelFormats.Pbgra32);
         image.Render(window); var encoder = new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(image));
         using var file = File.Create(Path.Combine(output, name)); encoder.Save(file);
     }

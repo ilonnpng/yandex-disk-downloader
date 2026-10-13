@@ -34,6 +34,7 @@ Queue / pause / range resume / retry / existing files / cancel / collisions: PAS
 UI screenshots are rendered from the running WPF application on Windows.
 Downloads in functional scenarios use a controlled HTTP fixture, not live Yandex CDN endpoints.
 "@ | Set-Content "$work/QA-RESULTS.txt" -Encoding utf8
+if (Test-Path "$work/screenshots/live-results.txt") { Get-Content "$work/screenshots/live-results.txt" | Add-Content "$work/QA-RESULTS.txt" -Encoding utf8 }
 # Publish nonsensitive demo screenshots and QA evidence with the app's public source.
 $evidence = @(Get-ChildItem "$work/screenshots/*.png") + @(Get-Item "$work/QA-RESULTS.txt")
 foreach ($file in $evidence) {
