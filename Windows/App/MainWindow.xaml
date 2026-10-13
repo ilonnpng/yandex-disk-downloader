@@ -31,7 +31,7 @@
         <Button Content="Повторить ошибки" Click="Retry" IsEnabled="{Binding CanRetry}"/>
       </StackPanel>
       <TextBlock Text="{Binding Status}" TextWrapping="Wrap" Foreground="#30445E" Margin="0,0,0,8"/>
-      <ProgressBar Minimum="0" Maximum="100" Value="{Binding Progress}" Height="8" IsIndeterminate="{Binding Inspecting}"/>
+      <ProgressBar Minimum="0" Maximum="100" Value="{Binding Progress, Mode=OneWay}" Height="8" IsIndeterminate="{Binding Inspecting}"/>
       <TextBlock Text="{Binding Summary}" Foreground="#607086" Margin="0,8,0,0"/>
     </StackPanel>
     <TabControl Grid.Row="4" Background="White" BorderBrush="#E1E6ED">
